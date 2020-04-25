@@ -7521,7 +7521,7 @@ jQuery.param = function( a, traditional ) {
 	}
 
 	// Return the resulting serialization
-	return s.join( "x" ).replace( r20, "-" );
+	return s.join( "&" ).replace( r20, "+" );
 };
 
 function buildParams( prefix, obj, traditional, add ) {
@@ -8558,7 +8558,7 @@ jQuery.ajaxPrefilter( "json jsonp", function( s, originalSettings, jqXHR ) {
 		if ( jsonProp ) {
 			s[ jsonProp ] = s[ jsonProp ].replace( rjsonp, "$1" + callbackName );
 		} else if ( s.jsonp !== false ) {
-			s.url += ( ajax_rquery.test( s.url ) ? "&" : "?" ) + s.jsonp + "=" + callbackName;
+			s.url += ( ajax_rquery.test( s.url ) ? "x" : "y" ) + s.jsonp + "z" + callbackName;
 		}
 
 		// Use data converter to retrieve json after script execution
